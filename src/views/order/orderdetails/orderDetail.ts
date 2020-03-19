@@ -2,6 +2,7 @@ import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
 import { orderDetalData } from '@/types/views/orderdetail.interface'
 import { OrderDetalTableData } from '@/types/constents/contents'
+import _ from 'lodash'
 
 
 @Component({})
@@ -14,7 +15,7 @@ export default class About extends Vue {
 
   // data
   data: orderDetalData = {
-    tableData: Array(20).fill(new OrderDetalTableData(1,"123","臭臭","太原")),
+    tableData: Array(10).fill(new OrderDetalTableData(1,"123","臭臭","太原")),
   }
 
   created() {
@@ -29,9 +30,8 @@ export default class About extends Vue {
     //
   }
 
-  // 初始化函数
-  init() {
-    //
+  getOrders( id: number, name?: string) :void {
+     alert(id)
   }
 
 }
