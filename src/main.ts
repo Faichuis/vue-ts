@@ -5,6 +5,7 @@ import store from './store'
 import "@/assets/scss/common.scss"
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import _ from "lodash"
 
 Vue.use(ElementUI);
 
