@@ -28,6 +28,6 @@ module.exports = {
   },
   devServer: {
     port: 5050, // 端口
-    proxy: 'https://www.easy-mock.com' // 设置代理
+    // proxy: 'https://www.easy-mock.com' // 设置代理
   }
 }

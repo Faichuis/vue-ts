@@ -7,7 +7,7 @@
       <el-table-column prop="address" label="地址"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
-    <el-button type="primary" @click="getOrders()" >点击</el-button>
+    <el-button type="primary" @click="getOrders(111)" >点击</el-button>
   </div>
 </template>
 

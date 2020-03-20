@@ -1,6 +1,6 @@
-import { OrderDetalTableData } from '../constents/contents';
+import { OrderDetailTableData } from '../constents/contents';
 
 
-export interface orderDetalData {
-    tableData: Array<OrderDetalTableData>;
+export interface OrderDetailData {
+    tableData: OrderDetailTableData[];
 }
