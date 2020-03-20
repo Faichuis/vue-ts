@@ -1,0 +1,11 @@
+
+.pp-head {
+  height: 42px;
+  width: 100%;
+  background-image: linear-gradient(to right, red, yellow),
+  linear-gradient(#2400a8, #2400a8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

@@ -1,5 +1,7 @@
-import Test from './test/test.vue'
+import CommonFooter from './footer/footer.vue'
+import CommonHeader from './header/header.vue'
 
 export {
-  Test
+  CommonFooter,
+  CommonHeader
 }

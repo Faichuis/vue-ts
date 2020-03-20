@@ -1,39 +1,44 @@
-import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
-import { IndexData } from '@/types/views/index.interface'
-import { HomeData } from "@/types/constents/contents"
-// import {  } from "@/components" // 组件
+import {Component, Vue} from "vue-property-decorator"
+import {Getter, Action} from "vuex-class"
+import {IndexData} from '@/types/views/index.interface'
+import {HomeData} from "@/types/constents/contents"
+import { CommonFooter, CommonHeader } from "@/components"
 
-@Component({})
+@Component({
+    components: {
+        CommonFooter,
+        CommonHeader
+    }
+})
 export default class About extends Vue {
-  // Getter
-  // @Getter author
+    // Getter
+    // @Getter author
 
-  // Action
-  @Action GET_DATA_ASYN
+    // Action
+    @Action GET_DATA_ASYN
 
-  // data
-  data: IndexData = {
-    tableData: Array(20).fill(new HomeData('2016-05-02', '阿木木', '上海市普陀区金沙江路 1518 弄'))
-    
-  }
+    // data
+    data: IndexData = {
+        tableData: Array(20).fill(new HomeData('2016-05-02', '阿木木', '上海市普陀区金沙江路 1518 弄'))
 
-  created() {
-    this.GET_DATA_ASYN()
-  }
+    }
 
-  activated() {
-    //
-  }
+    created() {
+        this.GET_DATA_ASYN()
+    }
 
-  mounted() {
-    //
-    
-  }
+    activated() {
+        //
+    }
 
-  // 初始化函数
-  init() {
-    //
-  }
+    mounted() {
+        //
+
+    }
+
+    // 初始化函数
+    init() {
+        //
+    }
 
 }

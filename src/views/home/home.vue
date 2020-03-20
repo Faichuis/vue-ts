@@ -1,5 +1,6 @@
 <template>
     <div class="index-wrap">
+        <common-header></common-header>
         <el-container style="height: 500px; border: 1px solid #eee">
             <el-aside width="200px">
                 <el-menu router :default-active="$route.path" background-color="#fff" text-color="black"
@@ -40,10 +41,12 @@
                 </el-menu>
             </el-aside>
         </el-container>
+        <common-footer></common-footer>
     </div>
 </template>
 
-<script lang="ts" src="./home.ts"></script>
+<script lang="ts" src="./home.ts">
+</script>
 
 <style lang="scss">
     @import "home";
