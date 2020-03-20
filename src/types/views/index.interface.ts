@@ -1,7 +1,7 @@
 import { HomeData } from "@/types/constents/contents"
 // index.Data 参数类型
 export interface IndexData {
-  tableData: Array<HomeData>,
+  tableData: HomeData[],
 }
 
 // VUEX index.State 参数类型

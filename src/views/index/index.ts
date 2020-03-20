@@ -14,7 +14,7 @@ export default class About extends Vue {
 
   // data
   data: IndexData = {
-    tableData: Array(20).fill(new HomeData('2016-05-02','阿木木','上海市普陀区金沙江路 1518 弄'))
+    tableData: Array(20).fill(new HomeData('2016-05-02', '阿木木', '上海市普陀区金沙江路 1518 弄'))
     
   }
 
