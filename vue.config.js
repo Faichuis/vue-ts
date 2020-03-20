@@ -27,7 +27,7 @@ module.exports = {
     loaderOptions: {} // css预设器配置项
   },
   devServer: {
-    port: 8080, // 端口
+    port: 5050, // 端口
     proxy: 'https://www.easy-mock.com' // 设置代理
   }
 }
