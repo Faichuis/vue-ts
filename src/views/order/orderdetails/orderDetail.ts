@@ -4,7 +4,6 @@ import { orderDetalData } from '@/types/views/orderdetail.interface'
 import { OrderDetalTableData } from '@/types/constents/contents'
 import _ from 'lodash'
 
-
 @Component({})
 export default class About extends Vue {
   // Getter
@@ -29,7 +28,6 @@ export default class About extends Vue {
   mounted() {
     //
   }
-
   getOrders( id: number, name?: string) :void {
      alert(id)
   }

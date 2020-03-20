@@ -27,7 +27,6 @@ export default [
       icon: '',
       keepAlive: true,
       title: 'index',
-      targer:'_blank'
     }
   },
   {
