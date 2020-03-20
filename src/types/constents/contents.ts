@@ -1,4 +1,4 @@
-export class  HomeData {
+export class HomeData {
     private date: string;
     private name: string;
     private address: string;
@@ -9,10 +9,10 @@ export class  HomeData {
         this.address = address;
 
     }
-    
+
 }
 
-export class  OrderDetailTableData {
+export class OrderDetailTableData {
     private id: number;
     private date: string;
     private name: string;
@@ -25,5 +25,5 @@ export class  OrderDetailTableData {
         this.address = address;
 
     }
-    
+
 }

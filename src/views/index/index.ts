@@ -28,7 +28,6 @@ export default class About extends Vue {
 
   mounted() {
     //
-    console.log(this.data.tableData);
     
   }
 
