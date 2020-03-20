@@ -43,8 +43,8 @@
     </div>
 </template>
 
-<script lang="ts" src="./index.ts"></script>
+<script lang="ts" src="./home.ts"></script>
 
 <style lang="scss">
-    @import "./index.scss";
+    @import "home";
 </style>

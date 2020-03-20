@@ -3,50 +3,52 @@
  * @param {boolean} icon 页面icon
  * @param {boolean} keepAlive 是否缓存页面
  * @param {string} title 页面标题
+ *
  */
+
 export default [
-  {
-    path: '/',
-    redirect: '/index'
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/login/login.vue'),
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'login'
+    {
+        path: '/',
+        redirect: '/home',
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login/login.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'login'
+        }
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/home/home.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'home',
+        }
+    },
+    {
+        path: '/orderDetails',
+        name: 'orderDetails',
+        component: () => import('@/views/order/orderDetails/orderDetail.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'orderDetails'
+        }
+    },
+    {
+        path: '/shipmentDetails',
+        name: 'shipmentDetails',
+        component: () => import('@/views/order/shipmentDetails/shipmentDetail.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'shipmentDetails'
+        }
     }
-  },
-  {
-    path: '/index',
-    name: 'index',
-    component: () => import('@/views/index/index.vue'),
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'index',
-    }
-  },
-  {
-    path: '/orderdetails',
-    name: 'orderdetails',
-    component: () => import('@/views/order/orderdetails/orderDetail.vue'),
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'orderdetails'
-    }
-  },
-  {
-    path: '/shipmentdetails',
-    name: 'shipmentdetails',
-    component: () => import('@/views/order/shipmentdetails/shipmentDetail.vue'),
-    meta: {
-      icon: '',
-      keepAlive: true,
-      title: 'shipmentdetails'
-    }
-  }
 ]
