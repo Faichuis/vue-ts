@@ -7,7 +7,8 @@ Vue.use(Router);
 
 const router = new Router({
     routes,
-    mode: 'history'
+    mode: 'hash'
+    //history
 });
 
 // 登陆页面路由 name
