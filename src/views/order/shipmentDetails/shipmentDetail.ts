@@ -1,8 +1,8 @@
-import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
+import {Component, Vue} from "vue-property-decorator"
+import {Getter, Action} from "vuex-class"
 import _ from 'lodash'
 import {OrderDetailData} from "@/types/views/orderdetail.interface";
-import {OrderDetailTableData} from "@/types/constents/contents";
+import {OrderDetailTableData} from "@/core";
 
 @Component({})
 export default class About extends Vue {

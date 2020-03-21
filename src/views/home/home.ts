@@ -1,7 +1,7 @@
 import {Component, Vue} from "vue-property-decorator"
 import {Getter, Action} from "vuex-class"
 import {IndexData} from '@/types/views/index.interface'
-import {HomeData} from "@/types/constents/contents"
+import { HomeData } from "@/core"
 import { CommonFooter, CommonHeader } from "@/components"
 
 @Component({

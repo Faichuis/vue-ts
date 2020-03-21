@@ -1,35 +1,36 @@
-import { Component, Vue } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
-import { OrderDetailData } from '@/types/views/orderdetail.interface'
-import { OrderDetailTableData } from '@/types/constents/contents'
+import {Component, Vue} from "vue-property-decorator"
+import {Getter, Action} from "vuex-class"
+import {OrderDetailData} from '@/types/views/orderdetail.interface'
+import {OrderDetailTableData} from '@/core'
 import _ from 'lodash'
 
 @Component({})
 export default class About extends Vue {
-  // Getter
-  // @Getter author
+    // Getter
+    // @Getter author
 
-  // Action
-  @Action GET_DATA_ASYN
+    // Action
+    @Action GET_DATA_ASYN
 
-  // data
-  data: OrderDetailData = {
-    tableData: Array(10).fill(new OrderDetailTableData(1, "123", "臭臭", "太原")),
-  }
+    // data
+    data: OrderDetailData = {
+        tableData: Array(10).fill(new OrderDetailTableData(1, "123", "臭臭", "太原")),
+    }
 
-  created() {
-    this.GET_DATA_ASYN()
-  }
+    created() {
+        this.GET_DATA_ASYN()
+    }
 
-  activated() {
-    //
-  }
+    activated() {
+        //
+    }
 
-  mounted() {
-    //
-  }
-   getOrders( id: number, name?: string): void {
-     alert(id)
-  }
+    mounted() {
+        //
+    }
+
+    getOrders(id: number, name?: string): void {
+        alert(id)
+    }
 
 }

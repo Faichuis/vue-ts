@@ -1,4 +1,4 @@
-import {HomeData} from "@/types/constents/contents"
+import {HomeData} from "@/core"
 
 // index.Data 参数类型
 export interface IndexData {

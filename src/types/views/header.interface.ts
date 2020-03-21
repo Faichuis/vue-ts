@@ -1,4 +1,4 @@
-import {HeaderSelectData} from "@/types/constents/contents"
+import {HeaderSelectData} from "@/core"
 
 export interface SelectData {
     selectData: HeaderSelectData[],
