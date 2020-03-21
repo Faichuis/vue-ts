@@ -1,4 +1,4 @@
-import { OrderDetailTableData } from '../constents/contents';
+import {OrderDetailTableData} from '@/core/';
 
 
 export interface OrderDetailData {
