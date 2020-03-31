@@ -25,11 +25,12 @@ export const getScrollbarWidth = () => {
 	return scrollbarWidth;
 };
 
-export const createNewArray = (length, content = undefined) => {
-	let i = -1;
-	let arr = [];
+export const createNewArray = (length: number, content: any) => {
+	let i : number = -1;
+	let arr : any = [];
+	let con : any;
 	while (++i < length) {
-		let con = Array.isArray(content) ? content[i] : content;
+		con = Array.isArray(content) ? content[i] : content;
 		arr.push(con);
 	}
 	return arr;
@@ -44,7 +45,7 @@ export const iteratorByTimes = (times, fn) => {
 
 export const getHeaderWords = (length) => {
 	let wordsArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-	let headerArr = [];
+	let headerArr: any = [];
 	if (length <= 26) {
 		headerArr = wordsArr.slice(0, length);
 	} else {

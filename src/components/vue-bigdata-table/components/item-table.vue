@@ -90,7 +90,7 @@
 	</div>
 </template>
 <script>
-import renderDom from './renderDom';
+import renderDom from '../../rederDom/renderDom';
 export default {
 	name: 'ItemTable',
 	components: {
