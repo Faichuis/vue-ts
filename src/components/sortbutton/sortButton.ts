@@ -9,7 +9,7 @@ export default class SortButton extends Vue {
     // Getter
     // @Getter author
 
-    // Action
+    //
     @Action GET_DATA_ASYN
 
     // data
@@ -18,18 +18,24 @@ export default class SortButton extends Vue {
     @Prop() currentSortType! : string;
 
     created() {
-        this.GET_DATA_ASYN()
-    }
+        this.GET_DATA_ASYN();
 
+        let name = this.methods.onClick("1");
+        console.log(name);
+    }
+    methods: any = {
+        onClick(name: string){
+            return name;
+        },
+    }
 
 
     activated() {
         //
     }
 
-    mounted() {
+    mounted: any = {
         //
-
     }
 
     // 初始化函数

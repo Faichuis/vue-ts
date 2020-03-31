@@ -100,13 +100,13 @@ export default class StyleCompute extends Vue {
         cursorOnHeader() {
             return this.headerTrStyle.cursor ? this.headerTrStyle.cursor : ((this.isOnCellEdge || this.canResizeCell) ? 'col-resize' : 'default');
         }
-    }
+    };
 
     watch: any = {
         highlightRow() {
             this._clearCurrentRow();
         }
-    }
+    };
 
     methods: any = {
         _tableResize() {
