@@ -1,5 +1,5 @@
-import Input from './input.vue';
-import Button from './button.vue';
+import Input from '../input/input.vue';
+import Button from '../button/button.vue';
 
 export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
     return h('div', {

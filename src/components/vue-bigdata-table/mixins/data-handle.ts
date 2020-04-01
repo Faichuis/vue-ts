@@ -1,4 +1,4 @@
-import ItemTable from '../components/item-table.vue';
+import ItemTable from '../itemTable/item-table.vue';
 import {iteratorByTimes, getHeaderWords} from '../util';
 import {Vue} from "vue-property-decorator"
 

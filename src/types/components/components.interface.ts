@@ -1,8 +1,3 @@
-// test.Data 参数类型
-export interface TestData {
-    componentName: string
-}
-
 export interface StyleComputeData {
     wrapperHeight: number,
     scrollTop: number,
@@ -18,5 +13,9 @@ export interface StyleComputeData {
     oldTableWidth: number, // 旧的表格宽度，用于重新计算列宽
     highlightRowIndex: number, // 高亮行号
     updateID: number
+}
+
+export interface SortButtonData {
+    sortingType: string,
 }
 

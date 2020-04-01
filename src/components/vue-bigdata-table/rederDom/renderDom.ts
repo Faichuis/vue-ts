@@ -1,4 +1,4 @@
-import {Vue} from "vue-property-decorator"
+import {Vue, Prop} from "vue-property-decorator"
 
 export default class RenderDom extends Vue {
     name: string = 'RenderCell';
