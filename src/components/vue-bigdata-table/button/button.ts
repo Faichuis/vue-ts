@@ -8,7 +8,7 @@ export default class SortButton extends Vue {
     type?: string;
 
     @Emit('click')
-    click(e) {}
+    click(e:any ) {}
 
     handleClick(e) {
         this.click(e);
