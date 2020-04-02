@@ -1,15 +1,14 @@
-@import "@/assets/scss/variables.scss";
 
 .index-wrap {
   width: 100%;
-}
 
-.el-header {
-  background-color: #B3C0D1;
-  color: #333;
-  line-height: 60px;
-}
+  > section {
+    height: 500px;
+    border: 1px solid #eee;
 
-.el-aside {
-  color: #333;
+    > aside {
+      color: #333;
+      width: 200px !important;
+    }
+  }
 }

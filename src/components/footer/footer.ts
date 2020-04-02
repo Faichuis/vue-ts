@@ -1,19 +1,8 @@
 import {Component, Vue} from "vue-property-decorator"
-import {Getter, Action} from "vuex-class"
 
-@Component({
-})
-export default class About extends Vue {
-    // Getter
-    // @Getter author
-
-    // Action
-    @Action GET_DATA_ASYN
-
-    // data
-
+@Component({})
+export default class Footer extends Vue {
     created() {
-        this.GET_DATA_ASYN()
     }
 
     activated() {

@@ -1,30 +1,19 @@
 import {Component, Vue} from "vue-property-decorator"
-import {Getter, Action} from "vuex-class"
 import {IndexData} from '@/types/views/index.interface'
-import { HomeData } from "@/core"
-import { CommonFooter, CommonHeader } from "@/components"
+import {HomeData} from "@/core"
+import {CommonFooter, CommonHeader, CommonBigDataTable} from "@/components"
 
 @Component({
     components: {
-        CommonFooter,
-        CommonHeader
+        CommonFooter, CommonHeader, CommonBigDataTable
     }
 })
-export default class About extends Vue {
-    // Getter
-    // @Getter author
+export default class Home extends Vue {
 
-    // Action
-    @Action GET_DATA_ASYN
-
-    // data
-    data: IndexData = {
-        tableData: Array(20).fill(new HomeData('2016-05-02', '阿木木', '上海市普陀区金沙江路 1518 弄'))
-
-    }
+    tableData: any[] = Array(20).fill(new HomeData('2016-05-02', '阿木木', '上海市普陀区金沙江路 1518 弄'));
 
     created() {
-        this.GET_DATA_ASYN()
+
     }
 
     activated() {

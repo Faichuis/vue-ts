@@ -38,12 +38,18 @@ export default class Edit extends Vue {
     };
     methods: any = {
         _editCell(row, col, scrollToView = true) {
-            if (!this.canEdit || row < 0 || row > this.insideTableData.length || col < 0 || col > this.columns.length || this.edittingTd === `${row}-${col}`) return;
-            if (scrollToView && parseInt(this.edittingTd.split('-')[0]) !== row) this.scrollToRow(row);
+            if (!this.canEdit || row < 0 || row > this.insideTableData.length || col < 0 || col > this.columns.length || this.edittingTd === `${row}-${col}`) {
+                return
+            }
+            if (scrollToView && parseInt(this.edittingTd.split('-')[0], 36) !== row) {
+                this.scrollToRow(row)
+            }
             this.edittingTd = `${row}-${col}`;
         },
         handleMousedownOnTable(e) {
-            if (e.button !== 0 || (!this.paste && !this.selectable)) return;
+            if (e.button !== 0 || (!this.paste && !this.selectable)) {
+                return
+            }
             let currentTd = e.target.tagName === 'TD' ? e.target : findNodeUpper(e.target, 'td');
             this.selectCellsStart = {
                 row: currentTd.getAttribute('data-row'),
@@ -58,7 +64,9 @@ export default class Edit extends Vue {
             document.addEventListener('mouseup', this.handleUpOnTable);
         },
         handleMoveOnTable(e) {
-            if (!(e.target.tagName === 'TD' || findNodeUpper(e.target, 'td'))) return;
+            if (!(e.target.tagName === 'TD' || findNodeUpper(e.target, 'td'))) {
+                return
+            }
             let currentTd = e.target.tagName === 'TD' ? e.target : findNodeUpper(e.target, 'td');
             this.selectCellsEnd = {
                 row: currentTd.getAttribute('data-row'),
@@ -66,7 +74,9 @@ export default class Edit extends Vue {
             };
         },
         handleUpOnTable(e) {
-            if (!this.paste && !this.selectable) return;
+            if (!this.paste && !this.selectable) {
+                return
+            }
             this.canSelectText = true;
             this.handleMoveOnTable(e);
             document.removeEventListener('mousemove', this.handleMoveOnTable);

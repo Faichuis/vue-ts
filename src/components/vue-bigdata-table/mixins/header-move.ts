@@ -19,7 +19,7 @@ export default class HeaderMove extends Vue {
             let atLeft = (e.pageX - cellDomRect.left) < (cellDomRect.width / 2);
             let atLeftGivenArea = (cellDomRect.left + this.atLeftCellPosi) >= e.pageX;
             let atRightGivenArea = (cellDomRect.right - e.pageX) <= this.atRightCellPosi;
-            let cellIndex = parseInt(cell.getAttribute('data-index')); // 当前单元格的序号
+            let cellIndex = parseInt(cell.getAttribute('data-index'), 36); // 当前单元格的序号
             if (atLeft && cellIndex !== 0) {
                 this.isOnCellEdge = (e.pageX - cellDomRect.left) <= 1 && cellIndex - 1 !== this.fixedCol;
             } else if (!atLeft && cellIndex !== this.cellNum - 1) {
@@ -39,7 +39,9 @@ export default class HeaderMove extends Vue {
                 } else {
                     index = cellIndex;
                 }
-                if (index === this.fixedCol) return;
+                if (index === this.fixedCol) {
+                    return
+                }
                 let widthLeft = this.widthArr[index] + e.pageX - this.initCellX;
                 let widthRight = this.widthArr[index + 1] + this.initCellX - e.pageX;
                 this.widthArr.splice(index, 2, widthLeft, widthRight);

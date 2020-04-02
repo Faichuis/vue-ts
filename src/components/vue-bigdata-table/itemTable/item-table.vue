@@ -89,4 +89,4 @@
 		</table>
 	</div>
 </template>
-<script lang="ts" src="item-table.ts"></script>
+<script lang="ts" src="./item-table.ts"></script>

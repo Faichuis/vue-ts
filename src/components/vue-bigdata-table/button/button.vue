@@ -6,7 +6,7 @@
                 class="line cancel-icon-line2 line2"></i></span>
     </button>
 </template>
-<script lang="ts" src="button.ts"></script>
+<script lang="ts" src="./button.ts"></script>
 <style lang="less">
     @import "button";
 </style>

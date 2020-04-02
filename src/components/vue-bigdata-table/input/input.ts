@@ -1,4 +1,4 @@
-import {Vue, Prop} from "vue-property-decorator"
+import {Vue, Prop, Watch} from "vue-property-decorator"
 
 export default class SortButton extends Vue {
     name: string = "Input";

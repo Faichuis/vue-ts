@@ -34,7 +34,9 @@ export default class SortButton extends Vue {
     };
     watch: any = {
         currentSortType(type) {
-            if (this.currentSortColIndex === this.colIndex) this.sortingType = type;
+            if (this.currentSortColIndex === this.colIndex) {
+                this.sortingType = type
+            }
         }
     };
 }

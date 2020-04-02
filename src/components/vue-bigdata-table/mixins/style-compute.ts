@@ -3,7 +3,7 @@ import {Vue} from "vue-property-decorator"
 import {StyleComputeData} from "@/types/components/components.interface";
 
 export default class StyleCompute extends Vue {
-    data : StyleComputeData = {
+    data: StyleComputeData = {
         wrapperHeight: 0,
         scrollTop: 0,
         moduleHeight: 0, // 三个tr块中的一块的高度
@@ -21,7 +21,7 @@ export default class StyleCompute extends Vue {
     };
 
     computed: any = {
-        fixedColCom() {
+        get fixedColCom() {
             return this.showIndex ? (this.fixedCol + 1) : this.fixedCol;
         },
         wrapperClasses() {
@@ -56,7 +56,7 @@ export default class StyleCompute extends Vue {
         },
         colWidthArr() {
             let len = this.cellNum;
-            let colWidthArr : Array<number> =  [];
+            let colWidthArr: number[] = [];
             if (this.fixedWrapperWidth) {
                 let width = this.outerWidth;
                 let num = this.cellNum;
@@ -73,7 +73,7 @@ export default class StyleCompute extends Vue {
             } else {
                 let i = 0;
                 let hasWidthCellCount = 0; // 统计设置了width的列的数量，从而为没有设置width的列分配宽度
-                let noWidthCellIndexArr : Array<number> = []; // 没有设置宽度的列的序列
+                let noWidthCellIndexArr: number [] = []; // 没有设置宽度的列的序列
                 let hasWidthCellTotalWidth = 0; // 设置了width的列一共多宽
                 while (i < len) {
                     if (this.columnsHandled[i].width) {
@@ -118,7 +118,9 @@ export default class StyleCompute extends Vue {
                 let width = this.colWidth * this.columns.length + (this.showIndex ? this.indexWidthInside : 0);
                 // this.tableWidth = width > this.outerWidth ? width : this.outerWidth;
                 this.tableWidth = this.fixedWrapperWidth ? this.outerWidth : (width > this.outerWidth ? width : this.outerWidth);
-                if (width < this.outerWidth) this._setColWidthArr();
+                if (width < this.outerWidth) {
+                    this._setColWidthArr()
+                }
                 this.widthArr = this.colWidthArr;
             });
         },
@@ -151,7 +153,7 @@ export default class StyleCompute extends Vue {
             return width;
         },
         setTopPlace() {
-            let scrollTop : number = this.scrollTop;
+            let scrollTop: number = this.scrollTop;
             let t0 = 0;
             let t1 = 0;
             let t2 = 0;
@@ -178,13 +180,18 @@ export default class StyleCompute extends Vue {
             this.setTableData();
         },
         _initMountedHandle() {
-            if (this.indexWidth === undefined) this.indexWidthInside = this.setIndexWidth(this.insideTableData.length);
-            else this.indexWidthInside = this.indexWidth;
+            if (this.indexWidth === undefined) {
+                this.indexWidthInside = this.setIndexWidth(this.insideTableData.length);
+            } else {
+                this.indexWidthInside = this.indexWidth
+            }
             this.oldTableWidth = this.colWidthArr.reduce((sum, b) => {
                 return sum + b;
             }, 0);
             this.widthArr = this.colWidthArr;
-            if ((this.colWidth * this.columns.length + (this.showIndex ? this.indexWidthInside : 0)) < this.outerWidth) this._setColWidthArr();
+            if ((this.colWidth * this.columns.length + (this.showIndex ? this.indexWidthInside : 0)) < this.outerWidth) {
+                this._setColWidthArr()
+            }
         },
         _setColWidthArr() {
             let widthArr = this.widthArr.map(width => {

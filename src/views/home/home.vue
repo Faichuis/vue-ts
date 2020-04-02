@@ -1,8 +1,8 @@
 <template>
     <div class="index-wrap">
         <common-header></common-header>
-        <el-container style="height: 500px; border: 1px solid #eee">
-            <el-aside width="200px">
+        <el-container>
+            <el-aside>
                 <el-menu router :default-active="$route.path" background-color="#fff" text-color="black"
                          active-text-color="#ffd04b">
                     <el-menu-item index="1">
@@ -48,6 +48,6 @@
 <script lang="ts" src="./home.ts">
 </script>
 
-<style lang="scss">
-    @import "home";
+<style lang="scss" scoped>
+    @import "./home.scss";
 </style>

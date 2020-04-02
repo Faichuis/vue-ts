@@ -18,7 +18,7 @@ export default class DataHandle extends Vue {
         initTableData: [] // 初始表格数据，用于恢复搜索和筛选,
     };
     computed: any = {
-        cellNum() { // 表格列数
+        get cellNum() { // 表格列数
             return this.columnsHandled.length;
         },
         columnsHandled() {
@@ -113,7 +113,9 @@ export default class DataHandle extends Vue {
                 },
                 on: {
                     'on-click-tr': (index, initRowIndex) => {
-                        if (this.highlightRow) this.highlightRowIndex = index;
+                        if (this.highlightRow) {
+                            this.highlightRowIndex = index
+                        }
                         this.$emit('on-click-tr', index, initRowIndex);
                     },
                     'on-click-td': (params) => {
@@ -137,7 +139,9 @@ export default class DataHandle extends Vue {
                         this.edittingTd = '';
                     },
                     'on-paste': (data) => {
-                        if (!this.paste) return;
+                        if (!this.paste) {
+                            return
+                        }
                         let value = [...this.value];
                         let rowLength = data.length;
                         let startSelect = this.startSelect;
@@ -150,9 +154,13 @@ export default class DataHandle extends Vue {
                         let selectCol = endCol - startCol + 1;
                         // let lastColLength = value[0].length - startCol;
                         // let lastRowLength = value.length - startRow;
-                        if (rowLength === 0) return;
+                        if (rowLength === 0) {
+                            return
+                        }
                         let colLength = data[0].length;
-                        if (colLength === 0) return;
+                        if (colLength === 0) {
+                            return
+                        }
                         // 使用复制的数据替换原数据
                         for (let r = 0; r < rowLength && r < selectRow; r++) {
                             for (let c = 0; c < colLength && c < selectCol; c++) {
@@ -182,9 +190,10 @@ export default class DataHandle extends Vue {
                 }
             });
         },
-        _scrollToIndexRow(index) {
-            index = parseInt(index);
-            if (isNaN(index) || index >= this.insideTableData.length || index < 0) return;
+        _scrollToIndexRow(index: number) {
+            if (isNaN(index) || index >= this.insideTableData.length || index < 0) {
+                return
+            }
             let scrollTop = index * this.itemRowHeight;
             this.$refs.outer.scrollTop = scrollTop;
             this.currentScrollToRowIndex = index;
@@ -210,7 +219,9 @@ export default class DataHandle extends Vue {
             let len = this.insideTableData.length;
             while (++i < len) {
                 let row = this.insideTableData[i];
-                if (row.initRowIndex === index) return i;
+                if (row.initRowIndex === index) {
+                    return i
+                }
             }
         }
     }

@@ -5,4 +5,4 @@
 	</span>
 </template>
 
-<script lang="ts" src="sortButton.ts"></script>
+<script lang="ts" src="./sortButton.ts"></script>

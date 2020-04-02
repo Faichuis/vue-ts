@@ -1,5 +1,4 @@
 import {Component, Vue, Prop} from "vue-property-decorator"
-import {SortButtonData} from "@/types/components/components.interface";
 import {CommonRenderDom} from "@/components";
 
 
@@ -28,8 +27,8 @@ export default class SortButton extends Vue {
     @Prop() edittingTd!: string;
     @Prop() startEditType!: string;
     @Prop() showFixedBoxShadow!: boolean;
-    @Prop() editCellRender!: Function;
-    @Prop() beforeSave!: Function;
+    @Prop() editCellRender!: () => void;
+    @Prop() beforeSave!: () => void;
     @Prop() canSelectText!: boolean;
     @Prop() startSelect!: object;
     @Prop() endSelect!: object;
@@ -48,18 +47,22 @@ export default class SortButton extends Vue {
     methods: any = {
         setAlign(i) {
             let columns = this.columns[i + this.baseIndex];
-            if (!columns) return;
+            if (!columns) {
+                return
+            }
             let col = columns;
             return this.prefix + '-' + col.align;
         },
         backValue(row, col) {
             return {
-                row: row,
-                col: col
+                '{row}': row,
+                '{col}': col
             };
         },
         handleMouseIn(index) {
-            if (!this.disabledHover) return;
+            if (!this.disabledHover) {
+                return
+            }
             this.currentMouseEnterIndex = index;
         },
         handleMouseLeave() {
@@ -76,23 +79,27 @@ export default class SortButton extends Vue {
         },
         handleDblclickTd(row, col, value) {
             this.editInputValue = value;
-            if (this.canEdit && this.startEditType === 'dblclick') this.editCell(row, col);
+            if (this.canEdit && this.startEditType === 'dblclick') {
+                this.editCell(row, col)
+            }
         },
         getSelectCellClasses(row, col) {
+            let clomRow: string = 'row';
+            let clomCol: string = 'col';
             let startSelect = this.startSelect;
             let endSelect = this.endSelect;
-            let startRow = parseInt(startSelect['row']);
-            let endRow = parseInt(endSelect['row']);
-            let startCol = parseInt(startSelect['col']);
+            let startRow = parseInt(startSelect[clomRow], 36);
+            let endRow = parseInt(endSelect[clomRow], 36);
+            let startCol = parseInt(startSelect[clomCol], 36);
             return [
                 ((startRow === row) && startCol === col) ? 'start-select-cell' : '',
-                ((endRow === row) && endSelect['col'] === col) ? 'end-select-cell' : '',
-                ((startRow === row) && endSelect['col'] === col) ? 'right-top-select-cell' : '',
+                ((endRow === row) && endSelect[clomCol] === col) ? 'end-select-cell' : '',
+                ((startRow === row) && endSelect[clomCol] === col) ? 'right-top-select-cell' : '',
                 ((endRow === row) && startCol === col) ? 'left-bottom-select-cell' : '',
-                ((startRow === row) && col > startCol && col < endSelect['col']) ? 'top-center-select-cell' : '',
-                ((endRow === row) && col > startCol && col < endSelect['col']) ? 'bottom-center-select-cell' : '',
+                ((startRow === row) && col > startCol && col < endSelect[clomCol]) ? 'top-center-select-cell' : '',
+                ((endRow === row) && col > startCol && col < endSelect[clomCol]) ? 'bottom-center-select-cell' : '',
                 (startCol === col && row > startRow && row < endRow) ? 'left-center-select-cell' : '',
-                (endSelect['col'] === col && row > startRow && row < endRow) ? 'right-center-select-cell' : ''
+                (endSelect[clomCol] === col && row > startRow && row < endRow) ? 'right-center-select-cell' : ''
             ];
         },
         handlePaste(e) {

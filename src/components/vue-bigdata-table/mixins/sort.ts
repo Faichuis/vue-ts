@@ -11,7 +11,7 @@ export default class Sort extends Vue {
             const sortable = this.sortable ? true : this.sortIndex !== undefined;
             return (sortable && !(this.showIndex && colIndex === 0) && (typeof this.sortIndex === 'number' ? colIndex <= this.sortIndex : this.sortIndex.indexOf(colIndex) >= 0)) || this.columnsHandled[colIndex].sortable;
         },
-        handleSort(colIndex, sortType) {
+        handleSort(colIndex: number, sortType) {
             this.sortedByColIndex = colIndex;
             this.sortedType = sortType;
             let valueArr = [...this.value];
@@ -30,8 +30,10 @@ export default class Sort extends Vue {
         },
         initSort() {
             if (this.defaultSort) {
-                const colIndex = parseInt(Object.keys(this.defaultSort)[0]);
-                if (!(colIndex || colIndex === 0)) return;
+                const colIndex = parseInt(Object.keys(this.defaultSort)[0], 36);
+                if (!(colIndex || colIndex === 0)) {
+                    return
+                }
                 const sortType = this.defaultSort[colIndex];
                 this.handleSort(colIndex, sortType);
             }

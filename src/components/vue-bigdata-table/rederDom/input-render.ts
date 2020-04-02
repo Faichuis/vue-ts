@@ -3,12 +3,12 @@ import Button from '../button/button.vue';
 
 export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
     return h('div', {
-        'class': 'edit-item-con'
+        '{class}': 'edit-item-con'
     }, [
         h(Input, {
-            'class': 'edit-item-input',
-            props: {
-                value: value
+            '{class}': 'edit-item-input',
+            '{props}': {
+                '{value}': value
             },
             on: {
                 input(res) {
@@ -17,39 +17,39 @@ export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
             }
         }),
         h('div', {
-            'class': 'edit-item-btn-con'
+            '{class}': 'edit-item-btn-con'
         }, [
             h(Button, {
-                'class': 'edit-btn',
-                props: {
+                '{class}': 'edit-btn',
+                '{props}': {
                     type: 'confirm'
                 },
-                on: {
+                '{on}': {
                     click() {
                         if (beforeSave({row, col, value, initRowIndex})) {
                             table.$emit('on-success-save', {
-                                row: row,
-                                col: col,
-                                value: table.editContent,
-                                initRowIndex: initRowIndex
+                                '{row:}': row,
+                                '{col}': col,
+                                '{value}': table.editContent,
+                                '{initRowIndex}': initRowIndex
                             });
                         } else {
                             table.$emit('on-fail-save', {
-                                row: row,
-                                col: col,
-                                value: table.editContent,
-                                initRowIndex: initRowIndex
+                                '{row}': row,
+                                '{col}': col,
+                                '{value}': table.editContent,
+                                '{initRowIndex}': initRowIndex
                             });
                         }
                     }
                 }
             }),
             h(Button, {
-                'class': 'edit-btn',
-                props: {
+                '{class}': 'edit-btn',
+                '{props}': {
                     type: 'cancel'
                 },
-                on: {
+                '{on}': {
                     click() {
                         table.$emit('on-cancel-edit');
                     }

@@ -5,6 +5,5 @@ import edit from './edit';
 import emptyTable from './empty-table';
 import sort from './sort';
 import filter from './filter';
-import inputRender from './input-render'
 
-export default [ headerMove, styleComputed, dataHandle, edit, emptyTable, sort, filter ,inputRender];
+export default [ headerMove, styleComputed, dataHandle, edit, emptyTable, sort, filter ];
