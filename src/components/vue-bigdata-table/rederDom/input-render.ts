@@ -10,7 +10,7 @@ export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
             '{props}': {
                 '{value}': value
             },
-            on: {
+            '{on}': {
                 input(res) {
                     table.editContent = res;
                 }

@@ -4,22 +4,9 @@ import {OrderDetailData} from '@/types/views/orderdetail.interface'
 import {OrderDetailTableData} from '@/core'
 import _ from 'lodash'
 
-@Component({})
-export default class OrderDetail extends Vue {
+@Component
+class OrderDetail extends Vue {
     data: OrderDetailData = {
         tableData: Array(10).fill(new OrderDetailTableData(1, "123", "臭臭", "太原")),
     };
-
-    created() {
-    }
-
-    activated() {
-        //
-    }
-
-    mounted() {
-        //
-    }
-
-
 }

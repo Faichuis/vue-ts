@@ -1,12 +1,19 @@
-import {Vue, Prop} from "vue-property-decorator"
+import {Component, Vue, Prop, Propsync} from "vue-property-decorator"
 
+@Component
 export default class RenderDom extends Vue {
     name: string = 'RenderCell';
     functional: boolean = true;
-    props: any = {
-        render: Function,
-        backValue: [Number, Object]
-    };
+
+    @Prop({
+        type: Function, default: () => {}
+    })
+    render?:()=>void;
+
+    @Prop([Number,Object])
+    backValue?: object;
+
+    @Propsync
     render: any = (h, ctx) => {
         return ctx.props.render(h, ctx.props.backValue, ctx.parent);
     }

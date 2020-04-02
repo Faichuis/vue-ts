@@ -1,9 +1,9 @@
-import {Component, Vue, Prop, Watch,} from "vue-property-decorator"
+import {Component, Vue, Prop, Watch} from "vue-property-decorator"
 import {CommonRenderDom, CommonSortButton, InputRender, mixins} from "@/components";
 
 
 @Component
-export default class VueBigDataTable extends Vue {
+class VueBigDataTable extends Vue {
     name: string = "vue-big-data-table";
 
     @Prop(Boolean)
