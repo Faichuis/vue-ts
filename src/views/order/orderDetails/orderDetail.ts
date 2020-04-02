@@ -5,7 +5,7 @@ import {OrderDetailTableData} from '@/core'
 import _ from 'lodash'
 
 @Component
-class OrderDetail extends Vue {
+export default class OrderDetail extends Vue {
     data: OrderDetailData = {
         tableData: Array(10).fill(new OrderDetailTableData(1, "123", "臭臭", "太原")),
     };

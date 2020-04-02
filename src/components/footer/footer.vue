@@ -61,5 +61,5 @@
     </div>
 </template>
 <script lang="ts" src="./footer.ts"></script>
-<style scoped>@import "footer.scss";</style>
+<style scoped>@import "./footer.scss";</style>
 

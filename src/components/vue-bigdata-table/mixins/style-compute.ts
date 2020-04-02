@@ -24,37 +24,37 @@ export default class StyleCompute extends Vue {
         get fixedColCom() {
             return this.showIndex ? (this.fixedCol + 1) : this.fixedCol;
         },
-        wrapperClasses() {
+        get wrapperClasses() {
             return [
                 this.prefix,
                 this.fixed ? `${this.prefix}-fixed` : ''
             ];
         },
-        headerStyle() {
+        get headerStyle() {
             return {
                 height: this.headerHeight + 'px',
                 transform: 'translateX(0)'
             };
         },
-        showFixedBoxShadow() {
+        get showFixedBoxShadow() {
             return this.scrollLeft !== 0;
         },
-        tableWidthStyles() {
+        get tableWidthStyles() {
             return {width: this.tableWidth + 'px'};
         },
-        rowStyles() {
+        get rowStyles() {
             return this.rowHeight !== undefined ? {height: `${this.rowHeight}px`} : {};
         },
-        placeholderHeight() {
+        get placeholderHeight() {
             return this.totalRowHeight - this.moduleHeight * 3; // 占位容器的总高度(上 + 下)
         },
-        bottomPlaceholderHeight() {
+        get bottomPlaceholderHeight() {
             return (this.placeholderHeight - this.topPlaceholderHeight) < 0 ? 0 : this.placeholderHeight - this.topPlaceholderHeight;
         },
-        itemRowHeight() {
+        get itemRowHeight() {
             return this.rowHeight === undefined ? 48 : this.rowHeight;
         },
-        colWidthArr() {
+        get colWidthArr() {
             let len = this.cellNum;
             let colWidthArr: number[] = [];
             if (this.fixedWrapperWidth) {
@@ -97,7 +97,7 @@ export default class StyleCompute extends Vue {
             }
             return colWidthArr;
         },
-        cursorOnHeader() {
+        get cursorOnHeader() {
             return this.headerTrStyle.cursor ? this.headerTrStyle.cursor : ((this.isOnCellEdge || this.canResizeCell) ? 'col-resize' : 'default');
         }
     };
