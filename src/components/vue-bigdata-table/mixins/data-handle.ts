@@ -1,22 +1,21 @@
 import ItemTable from '../itemTable/item-table.vue';
 import {iteratorByTimes, getHeaderWords} from '../util';
-import {Vue} from "vue-property-decorator"
+import {Component, Vue} from "vue-property-decorator"
 
+@Component
 export default class DataHandle extends Vue {
-    data: any = {
-        times0: 0, // 当前是第几轮
-        times1: 0,
-        times2: -1,
-        table1Data: [],
-        table2Data: [],
-        table3Data: [],
-        currentIndex: 0, // 当前展示的表格是第几个
-        itemNum: 0, // 一块数据显示的数据条数
-        timer: null,
-        scrollLeft: 0,
-        insideTableData: [],
-        initTableData: [] // 初始表格数据，用于恢复搜索和筛选,
-    };
+    times0: number = 0; // 当前是第几轮
+    times1: number = 0;
+    times2: number = -1;
+    table1Data: [] = [];
+    table2Data: [] = [];
+    table3Data: [] = [];
+    currentIndex: number = 0; // 当前展示的表格是第几个
+    itemNum: number = 0; // 一块数据显示的数据条数
+    timer: any = null;
+    scrollLeft: number = 0;
+    insideTableData: [] = [];
+    initTableData: [] = []; // 初始表格数据，用于恢复搜索和筛选,
     computed: any = {
         get cellNum() { // 表格列数
             return this.columnsHandled.length;
