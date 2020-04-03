@@ -1,0 +1,9 @@
+@import "~@/assets/scss/common";
+
+.orderDetail {
+  @include center();
+}
+
+.el-table {
+  font-size: 12px !important;
+}

@@ -65,6 +65,6 @@
     </div>
 </template>
 <script lang="ts" src="./vue-bigdata-table.ts"></script>
-<style lang="less">
-    @import './vue-bigdata-table.less';
+<style lang="scss">
+    @import './vue-bigdata-table.scss';
 </style>
