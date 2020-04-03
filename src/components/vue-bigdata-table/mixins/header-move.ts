@@ -1,9 +1,11 @@
 import {findNodeUpper} from '../util';
-import {Component, Vue} from "vue-property-decorator"
+import {Component, Mixins} from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
+import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
 
 @Component
-export default class HeaderMove extends VueBigDataTableClass {
+export default class HeaderMoveClass extends Mixins(VueBigDataTableClass,ItemTableClass,DataHandleClass) {
 
     isOnCellEdge: boolean = false; // 鼠标是否在表头的两个单元格之间的边框上
     canResizeCell: boolean = false;

@@ -1,7 +1,8 @@
 import {iteratorByTimes, getHeaderWords} from '../util';
-import {Component, Vue} from "vue-property-decorator"
+import {Component, Mixins} from "vue-property-decorator"
 import {ItemTable} from "@/components";
 import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
+import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 
 @Component({
@@ -9,7 +10,7 @@ import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-tab
         ItemTable
     }
 })
-export default class DataHandle extends ItemTableClass {
+export default class DataHandleClass extends Mixins(ItemTableClass) {
     times0: number = 0; // 当前是第几轮
     times1: number = 0;
     times2: number = -1;
@@ -17,10 +18,10 @@ export default class DataHandle extends ItemTableClass {
     table2Data: [] = [];
     table3Data: [] = [];
     currentIndex: number = 0; // 当前展示的表格是第几个
-    itemNum: number = 0; // 一块数据显示的数据条数
+    // itemNum: number = 0; // 一块数据显示的数据条数
     timer: any = null;
     scrollLeft: number = 0;
-    insideTableData: [] = [];
+    // insideTableData: [] = [];
     initTableData: [] = []; // 初始表格数据，用于恢复搜索和筛选,
 
     get cellNum() { // 表格列数
@@ -64,14 +65,14 @@ export default class DataHandle extends ItemTableClass {
         });
     };
 
-    // setTableData() {
-    //     let count1 = this.times0 * this.itemNum * 3;
-    //     this.table1Data = this.insideTableData.slice(count1, count1 + this.itemNum);
-    //     let count2 = this.times1 * this.itemNum * 3;
-    //     this.table2Data = this.insideTableData.slice(count2 + this.itemNum, count2 + this.itemNum * 2);
-    //     let count3 = this.times2 * this.itemNum * 3;
-    //     this.table3Data = this.insideTableData.slice(count3 + this.itemNum * 2, count3 + this.itemNum * 3);
-    // };
+    setTableData() {
+        let count1 = this.times0 * this.itemNum * 3;
+        this.table1Data = this.insideTableData.slice(count1, count1 + this.itemNum);
+        let count2 = this.times1 * this.itemNum * 3;
+        this.table2Data = this.insideTableData.slice(count2 + this.itemNum, count2 + this.itemNum * 2);
+        let count3 = this.times2 * this.itemNum * 3;
+        this.table3Data = this.insideTableData.slice(count3 + this.itemNum * 2, count3 + this.itemNum * 3);
+    };
 
     getTables(h) {
         let table1 = this.getItemTable(h, this.table1Data, 1);

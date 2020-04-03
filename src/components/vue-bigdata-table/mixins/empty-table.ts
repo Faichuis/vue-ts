@@ -1,16 +1,16 @@
-import {Component, Emit} from "vue-property-decorator"
-import Mixins from "@/components/vue-bigdata-table/mixins";
+import {Component, Emit ,Mixins} from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
+import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
 
 
 @Component
-export default class EmptyTable extends VueBigDataTableClass {
+export default class EmptyTableClass extends Mixins(VueBigDataTableClass,ItemTableClass) {
 
     @Emit('input')
     onInput(value:any){
         alert(value)
     }
-    
+
     _createEmptyData() {
         // this.$nextTick(() => {
         let rowNum = this.rowNum;

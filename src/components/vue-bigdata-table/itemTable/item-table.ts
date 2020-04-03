@@ -15,37 +15,37 @@ export default class ItemTableClass extends VueBigDataTableClass {
     @Prop(Number) tableIndex!: number;
     @Prop(String) itemData!: string;
     @Prop(String) rowStyles?: string;
-    @Prop(String) widthArr?: string;
-    @Prop(Object) columns!: any;
+    @Prop(String) widthArr!: any;
+    // @Prop(Object) columns!: any;
     @Prop(Number) itemNum!: number;
-    @Prop(String) showIndex?: any;
-    @Prop(String) indexRender?: any;
-    @Prop(String) stripe?: any;
-    @Prop(Number) fixedCol!: number;
+    // @Prop(String) showIndex?: any;
+    // @Prop(String) indexRender?: any;
+    // @Prop(String) stripe?: any;
+    // @Prop(Number) fixedCol!: number;
     @Prop(Number) currentScrollToRowIndex?: number;
-    @Prop(Boolean) canEdit?: boolean;
-    @Prop(String) edittingTd?: string;
-    @Prop(String) startEditType?: string;
+    // @Prop(Boolean) canEdit?: boolean;
+    @Prop(String) edittingTd!: string;
+    // @Prop(String) startEditType?: string;
     @Prop(Boolean) showFixedBoxShadow?: boolean;
-    @Prop(Function) editCellRender?: () => void;
-    @Prop(Function) beforeSave?: () => void;
+    // @Prop(Function) editCellRender?: () => void;
+    // @Prop(Function) beforeSave?: () => void;
     @Prop(Boolean) canSelectText?: boolean;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    }) startSelect!: object;
+    }) startSelect!: any;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    }) endSelect!: object;
-    @Prop(Object) disabledHover?: boolean;
-    @Prop(Boolean) highlightRow?: boolean;
+    }) endSelect!: any;
+    // @Prop(Object) disabledHover?: boolean;
+    // @Prop(Boolean) highlightRow?: boolean;
     @Prop(Number) highlightRowIndex?: number;
-    @Prop(Object) indexRenderParams?: object;
+    // @Prop(Object) indexRenderParams?: object;
 
-    prefix: string = 'vue-bigdata-table-data-table';
+    // prefix: string = 'vue-bigdata-table-data-table';
     tableWidth: number = 0;
     currentMouseEnterIndex: number = -1;
     editInputValue: string = '';

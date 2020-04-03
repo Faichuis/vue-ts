@@ -1,10 +1,12 @@
 import {findNodeUpper} from '../util';
-import {Component, Vue, Watch} from "vue-property-decorator"
+import {Component, Mixins, Watch} from "vue-property-decorator"
+import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
+import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
 
 @Component
-export default class Edit extends Vue {
+export default class EditClass extends Mixins(VueBigDataTableClass, ItemTableClass) {
 
-    edittingTd: string = ''; // 正在编辑的单元格的行号和列号拼接的字符串 `${row}-${col}`
+    // edittingTd: string = ''; // 正在编辑的单元格的行号和列号拼接的字符串 `${row}-${col}`
     editContent: string = ''; // 用来保存编辑的内容
     selectCellsStart: any = {}; // 编辑模式下可选中多行多列，此用来保存其实单元格行列号
     selectCellsEnd: any = {};
@@ -37,15 +39,15 @@ export default class Edit extends Vue {
         };
     }
 
-    // _editCell(row, col, scrollToView = true) {
-    //     if (!this.canEdit || row < 0 || row > this.insideTableData.length || col < 0 || col > this.columns.length || this.edittingTd === `${row}-${col}`) {
-    //         return
-    //     }
-    //     if (scrollToView && parseInt(this.edittingTd.split('-')[0], 36) !== row) {
-    //         this.scrollToRow(row)
-    //     }
-    //     this.edittingTd = `${row}-${col}`;
-    // };
+    _editCell(row, col, scrollToView = true) {
+        if (!this.canEdit || row < 0 || row > this.insideTableData.length || col < 0 || col > this.columns.length || this.edittingTd === `${row}-${col}`) {
+            return
+        }
+        if (scrollToView && parseInt(this.edittingTd.split('-')[0], 36) !== row) {
+            this.scrollToRow(row)
+        }
+        this.edittingTd = `${row}-${col}`;
+    };
 
     handleMousedownOnTable(e) {
         if (e.button !== 0 || (!this.paste && !this.selectable)) {
