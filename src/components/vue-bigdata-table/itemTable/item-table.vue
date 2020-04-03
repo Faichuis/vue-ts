@@ -18,7 +18,7 @@
 					@mouseenter.stop="handleMouseIn(index)"
 					@mouseleave.stop="handleMouseLeave">
 					<td v-if="showIndex" :class="['vue-bigdata-table-cell', 'vue-bigdata-table-data-table-center']">
-						<render-dom :render="indexRender" :back-value="{index: (indexBase + index), params: indexRenderParams}"></render-dom>
+						<common-render-dom :render="indexRender" :back-value="{index: (indexBase + index), params: indexRenderParams}"></common-render-dom>
 					</td>
 					<td
 						v-if="i <= fixedColCom"
@@ -36,10 +36,10 @@
 						<template v-if="!canEdit || (canEdit && `${indexBase + index}-${i}` !== edittingTd)">
 							<div v-if="!showCellRender[showIndex ? (i + 1) : i]" class="vue-bigdata-table-cell">{{ (typeof td === 'object' && td !== null) ? td.value : td }}</div>
 							<template v-else>
-								<render-dom :render="showCellRender[showIndex ? (i + 1) : i]" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td}"></render-dom>
+								<common-render-dom :render="showCellRender[showIndex ? (i + 1) : i]" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td}"></common-render-dom>
 							</template>
 						</template>
-						<render-dom v-else :render="editCellRender" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td, beforeSave}"></render-dom>
+						<common-render-dom v-else :render="editCellRender" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td, beforeSave}"></common-render-dom>
 					</td>
 				</tr>
 			</tbody>
@@ -61,7 +61,7 @@
 					:style="{background: currentMouseEnterIndex === index && canSelectText ? '#ebf7ff' : ''}"
 					:class="[stripe && (indexBase + index) % 2 !== 0 ? 'stripe-gray' : '', tr.className, currentScrollToRowIndex === indexBase + index ? 'scroll-to-row-tip' : '', indexBase + index === highlightRowIndex ? 'highlight-row' : '']">
 					<td v-if="showIndex" :class="['vue-bigdata-table-cell', 'vue-bigdata-table-data-table-center']">
-						<render-dom v-if="fixedCol < 0" :render="indexRender" :back-value="(indexBase + index)"></render-dom>
+						<common-render-dom v-if="fixedCol < 0" :render="indexRender" :back-value="(indexBase + index)"></common-render-dom>
 					</td>
 					<td
 						v-for="(td, i) in tr"
@@ -79,10 +79,10 @@
 						<template v-if="!canEdit || (canEdit && `${indexBase + index}-${i}` !== edittingTd)">
 							<div v-if="(!showCellRender[showIndex ? (i + 1) : i]) && (i >= fixedCol)" class="vue-bigdata-table-cell">{{ (typeof td === 'object' && td !== null) ? td.value : td }}</div>
 							<template v-else-if="i >= fixedCol">
-								<render-dom :render="showCellRender[showIndex ? (i + 1) : i]" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td}"></render-dom>
+								<common-render-dom :render="showCellRender[showIndex ? (i + 1) : i]" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td}"></common-render-dom>
 							</template>
 						</template>
-						<render-dom v-else :render="editCellRender" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td, beforeSave, initRowIndex: tr.initRowIndex}"></render-dom>
+						<common-render-dom v-else :render="editCellRender" :back-value="{row: indexBase + index, col: i, value: (typeof td === 'object' && td !== null) ? td.value : td, beforeSave, initRowIndex: tr.initRowIndex}"></common-render-dom>
 					</td>
 				</tr>
 			</tbody>

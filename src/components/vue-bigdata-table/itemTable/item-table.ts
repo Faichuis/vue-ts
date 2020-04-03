@@ -1,5 +1,6 @@
 import {Component, Vue, Prop} from "vue-property-decorator"
 import {CommonRenderDom} from "@/components";
+import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 
 
 @Component({
@@ -7,67 +8,42 @@ import {CommonRenderDom} from "@/components";
         CommonRenderDom
     }
 })
-export default class SortButton extends Vue {
+export default class ItemTableClass extends VueBigDataTableClass {
     name: string = "ItemTable";
 
-    @Prop(Number)
-    times!: number;
-    @Prop(Number)
-    tableIndex!: number;
-    @Prop(String)
-    itemData!: string;
-    @Prop(String)
-    rowStyles?: string;
-    @Prop(String)
-    widthArr?: string;
-    @Prop(Object)
-    columns!: any;
-    @Prop(Number)
-    itemNum!: number;
-    @Prop(String)
-    showIndex?: string;
-    @Prop(String)
-    indexRender?: string;
-    @Prop(String)
-    stripe?: string;
-    @Prop(Number)
-    fixedCol!: number;
-    @Prop(Number)
-    currentScrollToRowIndex?: number;
-    @Prop(Boolean)
-    canEdit?: boolean;
-    @Prop(String)
-    edittingTd?: string;
-    @Prop(String)
-    startEditType?: string;
-    @Prop(Boolean)
-    showFixedBoxShadow?: boolean;
-    @Prop(Function)
-    editCellRender?: () => void;
-    @Prop(Function)
-    beforeSave?: () => void;
-    @Prop(Boolean)
-    canSelectText?: boolean;
+    @Prop(Number) times!: number;
+    @Prop(Number) tableIndex!: number;
+    @Prop(String) itemData!: string;
+    @Prop(String) rowStyles?: string;
+    @Prop(String) widthArr?: string;
+    @Prop(Object) columns!: any;
+    @Prop(Number) itemNum!: number;
+    @Prop(String) showIndex?: any;
+    @Prop(String) indexRender?: any;
+    @Prop(String) stripe?: any;
+    @Prop(Number) fixedCol!: number;
+    @Prop(Number) currentScrollToRowIndex?: number;
+    @Prop(Boolean) canEdit?: boolean;
+    @Prop(String) edittingTd?: string;
+    @Prop(String) startEditType?: string;
+    @Prop(Boolean) showFixedBoxShadow?: boolean;
+    @Prop(Function) editCellRender?: () => void;
+    @Prop(Function) beforeSave?: () => void;
+    @Prop(Boolean) canSelectText?: boolean;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    })
-    startSelect!: object;
+    }) startSelect!: object;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    })
-    endSelect!: object;
-    @Prop(Object)
-    disabledHover?: boolean;
-    @Prop(Boolean)
-    highlightRow?: boolean;
-    @Prop(Number)
-    highlightRowIndex?: number;
-    @Prop(Object)
-    indexRenderParams?: object;
+    }) endSelect!: object;
+    @Prop(Object) disabledHover?: boolean;
+    @Prop(Boolean) highlightRow?: boolean;
+    @Prop(Number) highlightRowIndex?: number;
+    @Prop(Object) indexRenderParams?: object;
 
     prefix: string = 'vue-bigdata-table-data-table';
     tableWidth: number = 0;
@@ -82,7 +58,7 @@ export default class SortButton extends Vue {
         return this.prefix + '-' + columns.align;
     };
 
-    backValue(row, col) {
+    static backValue(row, col) {
         return {
             '{row}': row,
             '{col}': col
@@ -124,9 +100,9 @@ export default class SortButton extends Vue {
         let clomCol: string = 'col';
         let startSelect = this.startSelect;
         let endSelect = this.endSelect;
-        let startRow = parseInt(startSelect[clomRow], 36);
-        let endRow = parseInt(endSelect[clomRow], 36);
-        let startCol = parseInt(startSelect[clomCol], 36);
+        let startRow = parseInt(startSelect[clomRow]);
+        let endRow = parseInt(endSelect[clomRow]);
+        let startCol = parseInt(startSelect[clomCol]);
         return [
             ((startRow === row) && startCol === col) ? 'start-select-cell' : '',
             ((endRow === row) && endSelect[clomCol] === col) ? 'end-select-cell' : '',

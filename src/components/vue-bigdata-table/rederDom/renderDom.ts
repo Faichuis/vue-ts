@@ -5,13 +5,13 @@ export default class RenderDom extends Vue {
     name: string = 'RenderCell';
     functional: boolean = true;
 
-    @Prop(Function)
-    render?: () => void;
+    @Prop({
+        type: Function, default: (h, ctx) => {
+            return ctx.props.render(h, ctx.props.backValue, ctx.parent);
+        }
+    })
+    render!: (h, ctx) => {};
 
     @Prop([Number, Object])
     backValue?: object;
-
-    render1 = (h, ctx) => {
-        return ctx.props.render(h, ctx.props.backValue, ctx.parent);
-    }
 };

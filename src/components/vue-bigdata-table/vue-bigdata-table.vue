@@ -24,12 +24,12 @@
                                 :key="`table-title-${i}`"
                                 style="border-right: 1px solid #e9eaec;">
                 <span v-if="!col.render">{{ col.title }}<common-sort-button v-if="showSortBtn(i)" :col-index="i"
-                                                                     @on-sort="handleSort"
-                                                                     @on-cancel-sort="handleCancelSort"
-                                                                     :current-sort-col-index="sortedByColIndex"
-                                                                     :current-sort-type="sortedType"></common-sort-button></span>
-                                <render-dom v-else :render="col.render"
-                                            :back-value="getComputedTableDataIndex(i)"></render-dom>
+                                                                            @on-sort="handleSort"
+                                                                            @on-cancel-sort="handleCancelSort"
+                                                                            :current-sort-col-index="sortedByColIndex"
+                                                                            :current-sort-type="sortedType"></common-sort-button></span>
+                                <common-render-dom v-else :render="col.render"
+                                                   :back-value="getComputedTableDataIndex(i)"></common-render-dom>
                             </th>
                         </tr>
                     </table>
@@ -49,15 +49,15 @@
                             <th v-for="(col, i) in columnsHandled" :data-index="i" :key="`table-title-${i}`">
                                 <span v-if="!col.render && (i > fixedCol)">{{ col.title }}</span>
 
-                                <render-dom v-else-if="(i > fixedCol)" :render="col.render"
-                                            :back-value="getComputedTableDataIndex(i)"></render-dom>
+                                <common-render-dom v-else-if="(i > fixedCol)" :render="col.render"
+                                                   :back-value="getComputedTableDataIndex(i)"></common-render-dom>
                             </th>
                         </tr>
                     </table>
                 </div>
                 <div class="vue-bigdata-table-content" @mousedown="handleMousedownOnTable">
                     <div :style="{height: `${topPlaceholderHeight}px`}"></div>
-                    <render-dom :render="renderTable"></render-dom>
+                    <common-render-dom :render="renderTable"></common-render-dom>
                     <div :style="{height: `${bottomPlaceholderHeight}px`}"></div>
                 </div>
             </div>
