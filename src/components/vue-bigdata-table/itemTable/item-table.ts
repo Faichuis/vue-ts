@@ -1,6 +1,5 @@
-import {Component, Vue, Prop} from "vue-property-decorator"
+import {Component, Mixins, Prop, Vue} from "vue-property-decorator"
 import {CommonRenderDom} from "@/components";
-import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 
 
 @Component({
@@ -8,44 +7,47 @@ import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-tab
         CommonRenderDom
     }
 })
-export default class ItemTableClass extends VueBigDataTableClass {
-    name: string = "ItemTable";
+export default class ItemTableClass extends Vue {
+    // name: string = "ItemTable";
 
-    @Prop(Number) times!: number;
-    @Prop(Number) tableIndex!: number;
-    @Prop(String) itemData!: string;
-    @Prop(String) rowStyles?: string;
-    @Prop(String) widthArr!: any;
-    // @Prop(Object) columns!: any;
-    @Prop(Number) itemNum!: number;
-    // @Prop(String) showIndex?: any;
-    // @Prop(String) indexRender?: any;
-    // @Prop(String) stripe?: any;
-    // @Prop(Number) fixedCol!: number;
-    @Prop(Number) currentScrollToRowIndex?: number;
-    // @Prop(Boolean) canEdit?: boolean;
-    @Prop(String) edittingTd!: string;
-    // @Prop(String) startEditType?: string;
-    @Prop(Boolean) showFixedBoxShadow?: boolean;
-    // @Prop(Function) editCellRender?: () => void;
-    // @Prop(Function) beforeSave?: () => void;
-    @Prop(Boolean) canSelectText?: boolean;
+    @Prop(Number) public colNum!: number;
+    @Prop(Number) private times!: number;
+    @Prop(Number) private tableIndex!: number;
+    @Prop(String) private itemData!: string;
+    @Prop(Object) public rowStyles!: object;
+    @Prop(String) private widthArr!: any;
+    @Prop(Object) public columns!: any;
+    @Prop(Number) private itemNum!: number;
+    @Prop(String) public showIndex?: any;
+    @Prop(String) public indexRender?: any;
+    @Prop(String) public stripe?: any;
+    @Prop(Number) public fixedCol!: number;
+    @Prop(Number) public currentScrollToRowIndex?: number;
+    @Prop(Boolean) public canEdit?: boolean;
+    @Prop(String) public edittingTd!: string;
+    @Prop(String) public startEditType?: string;
+    @Prop(Boolean) public showFixedBoxShadow?: boolean;
+    @Prop(Function) public editCellRender?: () => void;
+    @Prop(Function) public beforeSave?: () => void;
+    @Prop(Boolean) public canSelectText?: boolean;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    }) startSelect!: any;
+    }) public startSelect!: any;
     @Prop({
         type: Object, default: () => {
             return {}
         }
-    }) endSelect!: any;
-    // @Prop(Object) disabledHover?: boolean;
-    // @Prop(Boolean) highlightRow?: boolean;
-    @Prop(Number) highlightRowIndex?: number;
-    // @Prop(Object) indexRenderParams?: object;
+    }) public endSelect!: any;
+    @Prop(Object) public disabledHover?: boolean;
+    @Prop(Boolean) public highlightRow?: boolean;
+    @Prop(Number) public highlightRowIndex?: number;
+    @Prop(Object) public indexRenderParams?: object;
 
-    // prefix: string = 'vue-bigdata-table-data-table';
+    insideTableData: any;
+
+    prefix: string = 'vue-bigdata-table-data-table';
     tableWidth: number = 0;
     currentMouseEnterIndex: number = -1;
     editInputValue: string = '';

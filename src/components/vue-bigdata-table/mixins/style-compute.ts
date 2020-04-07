@@ -6,22 +6,22 @@ import HeaderMoveClass from "@/components/vue-bigdata-table/mixins/header-move";
 import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
 
 @Component
-export default class StyleComputeClass extends Mixins(VueBigDataTableClass, ItemTableClass, HeaderMoveClass, DataHandleClass) {
+export default class StyleComputeClass extends Mixins( ) {
 
-    wrapperHeight: number = 0;
-    scrollTop: number = 0;
-    moduleHeight: number = 0; // 三个tr块中的一块的高度
-    topPlaceholderHeight: number = 0; // 顶部占位容器高度
+    private wrapperHeight: number = 0;
+    public scrollTop: number = 0;
+    public moduleHeight: number = 0; // 三个tr块中的一块的高度
+    private topPlaceholderHeight: number = 0; // 顶部占位容器高度
     // tableWidth: number = 0;
     // widthArr: number [] = []; // 用于给数据表格传递列宽
-    totalRowHeight: number = 0; // 如果全量渲染应该是多高，用于计算占位
+    private totalRowHeight: number = 0; // 如果全量渲染应该是多高，用于计算占位
     // currentScrollToRowIndex: number = -1; // 当前跳转到的行号，用于做闪烁提示
     // canSelectText: boolean = true; // 用于控制是否可选中表格文字
-    indexWidthInside: number = 0;
-    outerWidth: number = 0; // 外面容器宽度
-    oldTableWidth: number = 0; // 旧的表格宽度，用于重新计算列宽
+    public indexWidthInside: number = 0;
+    private outerWidth: number = 0; // 外面容器宽度
+    private oldTableWidth: number = 0; // 旧的表格宽度，用于重新计算列宽
     // highlightRowIndex: number = -1; // 高亮行号
-    updateID: number = 0;
+    private updateID: number = 0;
 
 
     get fixedColCom() {

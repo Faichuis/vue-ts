@@ -5,7 +5,7 @@ import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table"
 import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
 
 @Component
-export default class HeaderMoveClass extends Mixins(VueBigDataTableClass,ItemTableClass,DataHandleClass) {
+export default class HeaderMoveClass extends Mixins() {
 
     isOnCellEdge: boolean = false; // 鼠标是否在表头的两个单元格之间的边框上
     canResizeCell: boolean = false;

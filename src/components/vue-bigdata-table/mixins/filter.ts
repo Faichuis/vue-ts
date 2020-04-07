@@ -5,7 +5,7 @@ import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table"
 import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
 
 @Component
-export default class FilterClass extends Mixins(VueBigDataTableClass, ItemTableClass, StyleComputeClass) {
+export default class FilterClass extends Mixins() {
 
     _filter(col, queryArr) {
         let value = [...this.value];

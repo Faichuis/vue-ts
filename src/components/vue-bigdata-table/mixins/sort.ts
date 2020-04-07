@@ -1,7 +1,7 @@
 import {sortArr, sortDesArr} from '../util';
 import {Vue} from "vue-property-decorator"
 
-export default class Sort extends Vue {
+export default class SortClass extends Vue {
     // data: any = {
     sortedByColIndex: number = -1;
     sortedType: string = '';

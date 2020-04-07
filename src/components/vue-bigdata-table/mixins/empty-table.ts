@@ -4,7 +4,7 @@ import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table"
 
 
 @Component
-export default class EmptyTableClass extends Mixins(VueBigDataTableClass,ItemTableClass) {
+export default class EmptyTableClass extends Mixins() {
 
     @Emit('input')
     onInput(value:any){
