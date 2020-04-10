@@ -1,19 +1,15 @@
-import {Vue, Prop, Emit} from "vue-property-decorator"
+import {Vue, Prop, Emit, Component} from "vue-property-decorator"
 
-
+@Component
 export default class SortButton extends Vue {
-    name: string = "Button";
 
-    @Prop(String)
-    type?: string;
 
-    @Emit('click')
-    click(e: any) {
-        alert(123)
-    }
+    @Prop(String) type!: string;
 
-    handleClick(e) {
-        this.click(e);
+    @Emit('click') click(event: any) {}
+
+    private handleClick(event: any) {
+        this.click(event);
     }
 
 }

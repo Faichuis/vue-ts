@@ -1,10 +1,12 @@
-import {Component, Emit ,Mixins} from "vue-property-decorator"
+import {Component, Emit, Mixins, Vue} from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
+import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
 
 
 @Component
-export default class EmptyTableClass extends Mixins() {
+export default class EmptyTableClass extends Vue {
 
     @Emit('input')
     onInput(value:any){

@@ -6,4 +6,4 @@ import emptyTable from './empty-table';
 import sort from './sort';
 import filter from './filter';
 
-export default [ headerMove, styleComputed, dataHandle, edit, emptyTable, sort, filter ];
+export default [headerMove, styleComputed, dataHandle, edit, emptyTable, sort, filter]

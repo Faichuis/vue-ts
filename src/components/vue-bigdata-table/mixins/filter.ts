@@ -1,11 +1,12 @@
 import {hasOneOf} from '../util';
-import {Component, Mixins} from "vue-property-decorator"
+import {Component, Mixins, Vue} from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
 import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
 
 @Component
-export default class FilterClass extends Mixins() {
+export default class FilterClass extends Vue {
 
     _filter(col, queryArr) {
         let value = [...this.value];

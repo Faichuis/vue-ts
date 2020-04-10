@@ -1,7 +1,7 @@
 import Input from '../input/input.vue';
 import Button from '../button/button.vue';
 
-export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
+export default (h, { row, col, value, beforeSave, initRowIndex }, table) => {
     return h('div', {
         '{class}': 'edit-item-con'
     }, [
@@ -26,7 +26,7 @@ export default (h, {row, col, value, beforeSave, initRowIndex}, table) => {
                 },
                 '{on}': {
                     click() {
-                        if (beforeSave({row, col, value, initRowIndex})) {
+                        if (beforeSave({ row, col, value, initRowIndex })) {
                             table.$emit('on-success-save', {
                                 '{row:}': row,
                                 '{col}': col,

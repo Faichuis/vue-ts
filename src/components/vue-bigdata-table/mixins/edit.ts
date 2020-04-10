@@ -1,10 +1,12 @@
 import {findNodeUpper} from '../util';
-import {Component, Mixins, Watch} from "vue-property-decorator"
+import {Component, Mixins, Vue, Watch} from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
 import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
+import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
 
 @Component
-export default class EditClass extends Mixins() {
+export default class EditClass extends Vue {
 
     // edittingTd: string = ''; // 正在编辑的单元格的行号和列号拼接的字符串 `${row}-${col}`
     editContent: string = ''; // 用来保存编辑的内容

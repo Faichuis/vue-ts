@@ -1,17 +1,14 @@
-import {iteratorByTimes, getHeaderWords} from '../util';
-import {Component, Mixins} from "vue-property-decorator"
-import {ItemTable} from "@/components";
-import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
-import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
-import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
-import EditClass from "@/components/vue-bigdata-table/mixins/edit";
+import { iteratorByTimes, getHeaderWords } from '../util';
+import { Component, Vue, Mixins } from "vue-property-decorator"
+import { ItemTable } from "@/components";
+import VueBigDataTableClass from '../vue-bigdata-table';
 
 @Component({
     components: {
-        ItemTable
+        ItemTable,
     }
 })
-export default class DataHandleClass extends Mixins(ItemTableClass, StyleComputeClass, EditClass) {
+export default class DataHandleClass extends Mixins() {
     times0: number = 0; // 当前是第几轮
     times1: number = 0;
     times2: number = -1;
@@ -22,6 +19,7 @@ export default class DataHandleClass extends Mixins(ItemTableClass, StyleCompute
     itemNum: number = 0; // 一块数据显示的数据条数
     timer: any = null;
     scrollLeft: number = 0;
+    insideTableData: any [] = [];
     initTableData: [] = []; // 初始表格数据，用于恢复搜索和筛选,
 
     get cellNum() { // 表格列数
@@ -55,7 +53,7 @@ export default class DataHandleClass extends Mixins(ItemTableClass, StyleCompute
 
     handleScroll(e) {
         let ele = e.srcElement || e.target;
-        let {scrollTop, scrollLeft} = ele;
+        let { scrollTop, scrollLeft } = ele;
         this.scrollLeft = scrollLeft;
         // let direction = (scrollTop - this.scrollTop) > 0 ? 1 : ((scrollTop - this.scrollTop) < 0 ? -1 : 0); // 1 => down  -1 => up  0 => stop
         this.currentIndex = (scrollTop % (this.moduleHeight * 3) / this.moduleHeight);
@@ -136,15 +134,15 @@ export default class DataHandleClass extends Mixins(ItemTableClass, StyleCompute
                     // this.edittingTd = `${row}-${col}`;
                     this._editCell(row, col, false)
                 },
-                'on-success-save': ({row, col, value, initRowIndex, oldValue}) => {
+                'on-success-save': ({ row, col, value, initRowIndex, oldValue }) => {
                     let data = [...this.value];
                     data[initRowIndex][col] = value;
                     this.$emit('input', data);
-                    this.$emit('on-success-save', {row, col, value, initRowIndex, oldValue});
+                    this.$emit('on-success-save', { row, col, value, initRowIndex, oldValue });
                     this.edittingTd = '';
                 },
-                'on-fail-save': ({row, col, value, initRowIndex}) => {
-                    this.$emit('on-fail-save', {row, col, value, initRowIndex});
+                'on-fail-save': ({ row, col, value, initRowIndex }) => {
+                    this.$emit('on-fail-save', { row, col, value, initRowIndex });
                 },
                 'on-cancel-edit': () => {
                     this.edittingTd = '';
@@ -215,14 +213,14 @@ export default class DataHandleClass extends Mixins(ItemTableClass, StyleCompute
         }, 1800);
     };
 
-    // 给表格数据添加行号，用于排序后正确修改数据
-    setInitIndex(tableData) {
-        return tableData.map((item, i) => {
-            let row = item;
-            row.initRowIndex = i;
-            return row;
-        });
-    };
+    // // 给表格数据添加行号，用于排序后正确修改数据
+    // setInitIndex(tableData) {
+    //     return tableData.map((item, i) => {
+    //         let row = item;
+    //         row.initRowIndex = i;
+    //         return row;
+    //     });
+    // };
 
     // 获取指定行的初始行号
     _getInitRowIndexByIndex(index) {

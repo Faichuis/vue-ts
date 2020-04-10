@@ -5,7 +5,6 @@ import CommonSortButton from './vue-bigdata-table/sortbutton/sortButton.vue'
 import CommonVueBigDataTable from './vue-bigdata-table/vue-bigdata-table.vue'
 import ItemTable from './vue-bigdata-table/itemTable/item-table.vue'
 import InputRender from './vue-bigdata-table/rederDom/input-render'
-import mixins from './vue-bigdata-table/mixins'
 
 
 export {
@@ -16,5 +15,4 @@ export {
     CommonVueBigDataTable,
     ItemTable,
     InputRender,
-    mixins
 }

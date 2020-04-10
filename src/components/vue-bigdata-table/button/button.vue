@@ -8,5 +8,5 @@
 </template>
 <script lang="ts" src="./button.ts"></script>
 <style lang="less">
-    @import "button";
+    @import "./button.less";
 </style>

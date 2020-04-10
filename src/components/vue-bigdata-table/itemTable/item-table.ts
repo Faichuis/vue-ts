@@ -1,5 +1,8 @@
 import {Component, Mixins, Prop, Vue} from "vue-property-decorator"
 import {CommonRenderDom} from "@/components";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
+import MixinsClass from '@/components/vue-bigdata-table/mixins'
+import StyleComputeClass from "@/components/vue-bigdata-table/mixins/style-compute";
 
 
 @Component({
@@ -8,16 +11,15 @@ import {CommonRenderDom} from "@/components";
     }
 })
 export default class ItemTableClass extends Vue {
-    // name: string = "ItemTable";
 
     @Prop(Number) public colNum!: number;
     @Prop(Number) private times!: number;
     @Prop(Number) private tableIndex!: number;
     @Prop(String) private itemData!: string;
     @Prop(Object) public rowStyles!: object;
-    @Prop(String) private widthArr!: any;
+    @Prop(String) public widthArr!: any;
     @Prop(Object) public columns!: any;
-    @Prop(Number) private itemNum!: number;
+    @Prop(Number) public itemNum!: number;
     @Prop(String) public showIndex?: any;
     @Prop(String) public indexRender?: any;
     @Prop(String) public stripe?: any;
@@ -26,7 +28,7 @@ export default class ItemTableClass extends Vue {
     @Prop(Boolean) public canEdit?: boolean;
     @Prop(String) public edittingTd!: string;
     @Prop(String) public startEditType?: string;
-    @Prop(Boolean) public showFixedBoxShadow?: boolean;
+    @Prop(Boolean) public showFixedBoxShadow!: boolean;
     @Prop(Function) public editCellRender?: () => void;
     @Prop(Function) public beforeSave?: () => void;
     @Prop(Boolean) public canSelectText?: boolean;

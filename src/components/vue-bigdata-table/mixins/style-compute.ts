@@ -1,26 +1,26 @@
-import {getScrollbarWidth} from '../util';
-import {Component, Mixins, Vue, Watch,} from "vue-property-decorator"
+import { getScrollbarWidth } from '../util';
+import { Component, Mixins, Watch, Vue } from "vue-property-decorator"
 import VueBigDataTableClass from "@/components/vue-bigdata-table/vue-bigdata-table";
-import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
 import HeaderMoveClass from "@/components/vue-bigdata-table/mixins/header-move";
 import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
+import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
 
 @Component
-export default class StyleComputeClass extends Mixins( ) {
+export default class StyleComputeClass extends Vue {
 
     private wrapperHeight: number = 0;
     public scrollTop: number = 0;
     public moduleHeight: number = 0; // 三个tr块中的一块的高度
     private topPlaceholderHeight: number = 0; // 顶部占位容器高度
-    // tableWidth: number = 0;
-    // widthArr: number [] = []; // 用于给数据表格传递列宽
+    tableWidth: number = 0;
+    widthArr: number[] = []; // 用于给数据表格传递列宽
     private totalRowHeight: number = 0; // 如果全量渲染应该是多高，用于计算占位
-    // currentScrollToRowIndex: number = -1; // 当前跳转到的行号，用于做闪烁提示
-    // canSelectText: boolean = true; // 用于控制是否可选中表格文字
+    currentScrollToRowIndex: number = -1; // 当前跳转到的行号，用于做闪烁提示
+    canSelectText: boolean = true; // 用于控制是否可选中表格文字
     public indexWidthInside: number = 0;
     private outerWidth: number = 0; // 外面容器宽度
     private oldTableWidth: number = 0; // 旧的表格宽度，用于重新计算列宽
-    // highlightRowIndex: number = -1; // 高亮行号
+    highlightRowIndex: number = -1; // 高亮行号
     private updateID: number = 0;
 
 
@@ -47,11 +47,11 @@ export default class StyleComputeClass extends Mixins( ) {
     };
 
     get tableWidthStyles() {
-        return {width: this.tableWidth + 'px'};
+        return { width: this.tableWidth + 'px' };
     };
 
     get rowStyles() {
-        return this.rowHeight !== undefined ? {height: `${this.rowHeight}px`} : {};
+        return this.rowHeight !== undefined ? { height: `${this.rowHeight}px` } : {};
     };
 
     get placeholderHeight() {
@@ -85,7 +85,7 @@ export default class StyleComputeClass extends Mixins( ) {
         } else {
             let i = 0;
             let hasWidthCellCount = 0; // 统计设置了width的列的数量，从而为没有设置width的列分配宽度
-            let noWidthCellIndexArr: number [] = []; // 没有设置宽度的列的序列
+            let noWidthCellIndexArr: number[] = []; // 没有设置宽度的列的序列
             let hasWidthCellTotalWidth = 0; // 设置了width的列一共多宽
             while (i < len) {
                 if (this.columnsHandled[i].width) {
