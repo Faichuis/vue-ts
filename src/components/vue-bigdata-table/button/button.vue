@@ -7,6 +7,6 @@
     </button>
 </template>
 <script lang="ts" src="./button.ts"></script>
-<style lang="less">
-    @import "./button.less";
+<style lang="scss">
+    @import "./button.scss";
 </style>

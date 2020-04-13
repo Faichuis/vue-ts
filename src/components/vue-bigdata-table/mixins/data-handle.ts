@@ -8,7 +8,7 @@ import VueBigDataTableClass from '../vue-bigdata-table';
         ItemTable,
     }
 })
-export default class DataHandleClass extends Mixins() {
+export default class DataHandleClass extends VueBigDataTableClass {
     times0: number = 0; // 当前是第几轮
     times1: number = 0;
     times2: number = -1;

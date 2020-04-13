@@ -1,7 +1,11 @@
 import { Component, Prop, Watch, Mixins } from "vue-property-decorator"
 import { CommonRenderDom, CommonSortButton, InputRender } from "@/components";
-import mixins from '@/components/vue-bigdata-table/mixins'
 import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table";
+import DataHandleClass from "@/components/vue-bigdata-table/mixins/data-handle";
+import StyleComputeClass from './mixins/style-compute';
+import SortClass from './mixins/sort';
+import  { mixins } from 'vue-class-component';
+
 
 
 @Component({
@@ -10,7 +14,7 @@ import ItemTableClass from "@/components/vue-bigdata-table/itemTable/item-table"
     }
 })
 
-export default class VueBigDataTableClass extends Mixins(...mixins) {
+export default class VueBigDataTableClass extends Mixins(DataHandleClass, StyleComputeClass, SortClass) {
     name: string = "vue-big-data-table";
 
     @Prop(Boolean) showIndex?: boolean; // 是否显示序列号列
@@ -63,9 +67,6 @@ export default class VueBigDataTableClass extends Mixins(...mixins) {
     // mixins = [...mixins];
     // private prefix: string = 'vue-bigdata-table';
 
-    // mixins = [...mixins];
-    // private prefix: string = 'vue-bigdata-table';
-
 
     mounted() {
         this.$nextTick(() => {
@@ -73,9 +74,6 @@ export default class VueBigDataTableClass extends Mixins(...mixins) {
             this._initMountedHandle();
             this.resize(0);
         });
-    }
-    _initMountedHandle() {
-        throw new Error("Method not implemented.");
     }
 
     @Watch('value')
@@ -85,9 +83,6 @@ export default class VueBigDataTableClass extends Mixins(...mixins) {
             this.initSort();
             this._initMountedHandle();
         });
-    }
-    initSort() {
-        throw new Error("Method not implemented.");
     }
 
     @Watch('insideTableData')

@@ -32,7 +32,7 @@ export default class SortClass extends Vue {
         this.insideTableData = [...this.value];
     };
 
-    private initSort() {
+    initSort() {
         if (this.defaultSort) {
             const colIndex = parseInt(Object.keys(this.defaultSort)[0], 36);
             if (!(colIndex || colIndex === 0)) {

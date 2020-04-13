@@ -3,6 +3,6 @@
 </template>
 <script lang="ts" src="./input.ts">
 </script>
-<style lang="less">
-    @import "./input.less";
+<style lang="scss">
+    @import "./input.scss";
 </style>
